@@ -1,0 +1,14 @@
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/bin/Debug/net9.0/DataAccess.deps.json
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/bin/Debug/net9.0/DataAccess.dll
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/bin/Debug/net9.0/DataAccess.pdb
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.AssemblyInfoInputs.cache
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.AssemblyInfo.cs
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.csproj.CoreCompileInputs.cache
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.dll
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/refint/DataAccess.dll
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.pdb
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/ref/DataAccess.dll
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/bin/Debug/net9.0/DataAccess.runtimeconfig.json
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.genruntimeconfig.cache
+/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/obj/Debug/net9.0/DataAccess.csproj.AssemblyReference.cache

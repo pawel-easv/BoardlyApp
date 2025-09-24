@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark, coffee, dracula, night, luxury, pastel;
+}
+.button-text-container{
+    @apply btn btn-primary bg-base-200 text-primary hover:bg-primary hover:text-base-200
+}
+
+.button-image-container{
+    @apply btn btn-primary bg-primary text-base-200 hover:bg-base-200 hover:text-primary
+}
