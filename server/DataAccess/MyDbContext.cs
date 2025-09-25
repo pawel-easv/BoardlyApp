@@ -27,9 +27,7 @@ public partial class MyDbContext : DbContext
 
             entity.ToTable("boards", "boardly");
 
-            entity.Property(e => e.BoardId)
-                .HasDefaultValueSql("nextval('boards_board_id_seq'::regclass)")
-                .HasColumnName("board_id");
+            entity.Property(e => e.BoardId).HasColumnName("board_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp without time zone")
@@ -46,9 +44,7 @@ public partial class MyDbContext : DbContext
 
             entity.ToTable("tasks", "boardly");
 
-            entity.Property(e => e.TaskId)
-                .ValueGeneratedNever()
-                .HasColumnName("task_id");
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
             entity.Property(e => e.BoardId).HasColumnName("board_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
@@ -74,9 +70,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasIndex(e => e.Email, "users_email_key").IsUnique();
 
-            entity.Property(e => e.UserId)
-                .HasDefaultValueSql("nextval('users_user_id_seq'::regclass)")
-                .HasColumnName("user_id");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .HasColumnName("email");

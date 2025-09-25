@@ -2,15 +2,40 @@ import TaskComponent from "./TaskComponent.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Droppable, Draggable } from "@hello-pangea/dnd";
-import type {TaskDto} from "../../Api.ts";
+import { Api, type TaskDto } from "../../Api.ts";
+
+const api = new Api();
 
 interface TaskListProps {
     id: string;
     title: string;
+    boardId: string;
     tasks: TaskDto[];
+    onTaskAdd: (task: TaskDto) => void;
+    onTaskUpdate: (task: TaskDto) => void;
 }
 
-export default function TaskList({ id, title, tasks }: TaskListProps) {
+export default function TaskList({
+                                     id,
+                                     title,
+                                     boardId,
+                                     onTaskAdd,
+                                     tasks,
+                                 }: TaskListProps) {
+
+    const addNewTask = async () => {
+        try {
+            const created = await api.createTaskWithApiAndReturn.boardsCreateTaskWithApiAndReturn({
+                boardId: Number(boardId),
+                title: "New Task",
+                status: id,
+            });
+            onTaskAdd(created.data);
+        } catch (err) {
+            console.error("Failed to create task", err);
+        }
+    };
+
     return (
         <Droppable droppableId={id}>
             {(provided) => (
@@ -23,7 +48,7 @@ export default function TaskList({ id, title, tasks }: TaskListProps) {
 
                     {tasks.map((task, index) => (
                         <Draggable
-                            key={task.taskId!.toString()}    // ensure unique string id
+                            key={task.taskId!.toString()}
                             draggableId={task.taskId!.toString()}
                             index={index}
                         >
@@ -41,7 +66,10 @@ export default function TaskList({ id, title, tasks }: TaskListProps) {
 
                     {provided.placeholder}
 
-                    <div className="button-text-container flex items-center gap-2 mt-2 cursor-pointer">
+                    <div
+                        className="button-text-container flex items-center gap-2 mt-2 cursor-pointer"
+                        onClick={addNewTask}
+                    >
                         <FontAwesomeIcon icon={faPlus} />
                         <span>Add new task</span>
                     </div>

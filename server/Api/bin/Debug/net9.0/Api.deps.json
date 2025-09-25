@@ -16,6 +16,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "9.0.9",
           "Microsoft.Extensions.DependencyInjection": "10.0.0-rc.1.25451.107",
           "NSwag.AspNetCore": "14.5.0",
+          "NSwag.CodeGeneration.TypeScript": "14.6.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
         },
         "runtime": {
@@ -56,6 +57,19 @@
           "lib/netstandard2.0/Com.Ctrip.Framework.Apollo.Configuration.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Fluid.Core/2.25.0": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "9.0.0",
+          "Parlot": "1.4.0",
+          "TimeZoneConverter": "7.0.0"
+        },
+        "runtime": {
+          "lib/net9.0/Fluid.dll": {
+            "assemblyVersion": "2.25.0.0",
+            "fileVersion": "2.25.0.0"
           }
         }
       },
@@ -552,14 +566,14 @@
           }
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.6": {
+      "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "9.0.9"
         }
       },
       "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
         "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.6",
+          "Microsoft.Extensions.FileProviders.Abstractions": "9.0.0",
           "Microsoft.Extensions.FileSystemGlobbing": "3.1.6"
         }
       },
@@ -635,11 +649,11 @@
           }
         }
       },
-      "Namotion.Reflection/3.4.2": {
+      "Namotion.Reflection/3.4.3": {
         "runtime": {
           "lib/net8.0/Namotion.Reflection.dll": {
-            "assemblyVersion": "3.4.2.0",
-            "fileVersion": "3.4.2.0"
+            "assemblyVersion": "3.4.3.0",
+            "fileVersion": "3.4.3.0"
           }
         }
       },
@@ -711,30 +725,53 @@
           }
         }
       },
-      "NJsonSchema/11.4.0": {
+      "NJsonSchema/11.5.0": {
         "dependencies": {
-          "NJsonSchema.Annotations": "11.4.0",
-          "Namotion.Reflection": "3.4.2",
+          "NJsonSchema.Annotations": "11.5.0",
+          "Namotion.Reflection": "3.4.3",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
           "lib/net8.0/NJsonSchema.dll": {
-            "assemblyVersion": "11.4.0.0",
-            "fileVersion": "11.4.0.0"
+            "assemblyVersion": "11.5.0.0",
+            "fileVersion": "11.5.0.0"
           }
         }
       },
-      "NJsonSchema.Annotations/11.4.0": {
+      "NJsonSchema.Annotations/11.5.0": {
         "runtime": {
           "lib/netstandard2.0/NJsonSchema.Annotations.dll": {
-            "assemblyVersion": "11.4.0.0",
-            "fileVersion": "11.4.0.0"
+            "assemblyVersion": "11.5.0.0",
+            "fileVersion": "11.5.0.0"
+          }
+        }
+      },
+      "NJsonSchema.CodeGeneration/11.5.0": {
+        "dependencies": {
+          "Fluid.Core": "2.25.0",
+          "NJsonSchema": "11.5.0"
+        },
+        "runtime": {
+          "lib/net8.0/NJsonSchema.CodeGeneration.dll": {
+            "assemblyVersion": "11.5.0.0",
+            "fileVersion": "11.5.0.0"
+          }
+        }
+      },
+      "NJsonSchema.CodeGeneration.TypeScript/11.5.0": {
+        "dependencies": {
+          "NJsonSchema.CodeGeneration": "11.5.0"
+        },
+        "runtime": {
+          "lib/net8.0/NJsonSchema.CodeGeneration.TypeScript.dll": {
+            "assemblyVersion": "11.5.0.0",
+            "fileVersion": "11.5.0.0"
           }
         }
       },
       "NJsonSchema.NewtonsoftJson/11.4.0": {
         "dependencies": {
-          "NJsonSchema": "11.4.0",
+          "NJsonSchema": "11.5.0",
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
@@ -746,7 +783,7 @@
       },
       "NJsonSchema.Yaml/11.4.0": {
         "dependencies": {
-          "NJsonSchema": "11.4.0",
+          "NJsonSchema": "11.5.0",
           "YamlDotNet": "16.3.0"
         },
         "runtime": {
@@ -801,21 +838,45 @@
           }
         }
       },
-      "NSwag.Core/14.5.0": {
+      "NSwag.CodeGeneration/14.6.0": {
         "dependencies": {
-          "NJsonSchema": "11.4.0"
+          "NJsonSchema.CodeGeneration": "11.5.0",
+          "NSwag.Core": "14.6.0"
+        },
+        "runtime": {
+          "lib/net8.0/NSwag.CodeGeneration.dll": {
+            "assemblyVersion": "14.6.0.0",
+            "fileVersion": "14.6.0.0"
+          }
+        }
+      },
+      "NSwag.CodeGeneration.TypeScript/14.6.0": {
+        "dependencies": {
+          "NJsonSchema.CodeGeneration.TypeScript": "11.5.0",
+          "NSwag.CodeGeneration": "14.6.0"
+        },
+        "runtime": {
+          "lib/net8.0/NSwag.CodeGeneration.TypeScript.dll": {
+            "assemblyVersion": "14.6.0.0",
+            "fileVersion": "14.6.0.0"
+          }
+        }
+      },
+      "NSwag.Core/14.6.0": {
+        "dependencies": {
+          "NJsonSchema": "11.5.0"
         },
         "runtime": {
           "lib/net8.0/NSwag.Core.dll": {
-            "assemblyVersion": "14.5.0.0",
-            "fileVersion": "14.5.0.0"
+            "assemblyVersion": "14.6.0.0",
+            "fileVersion": "14.6.0.0"
           }
         }
       },
       "NSwag.Core.Yaml/14.5.0": {
         "dependencies": {
           "NJsonSchema.Yaml": "11.4.0",
-          "NSwag.Core": "14.5.0"
+          "NSwag.Core": "14.6.0"
         },
         "runtime": {
           "lib/net8.0/NSwag.Core.Yaml.dll": {
@@ -827,7 +888,7 @@
       "NSwag.Generation/14.5.0": {
         "dependencies": {
           "NJsonSchema.NewtonsoftJson": "11.4.0",
-          "NSwag.Core": "14.5.0"
+          "NSwag.Core": "14.6.0"
         },
         "runtime": {
           "lib/net8.0/NSwag.Generation.dll": {
@@ -844,6 +905,14 @@
           "lib/net9.0/NSwag.Generation.AspNetCore.dll": {
             "assemblyVersion": "14.5.0.0",
             "fileVersion": "14.5.0.0"
+          }
+        }
+      },
+      "Parlot/1.4.0": {
+        "runtime": {
+          "lib/net8.0/Parlot.dll": {
+            "assemblyVersion": "1.4.0.0",
+            "fileVersion": "1.4.0.0"
           }
         }
       },
@@ -1534,6 +1603,14 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "TimeZoneConverter/7.0.0": {
+        "runtime": {
+          "lib/net9.0/TimeZoneConverter.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      },
       "YamlDotNet/16.3.0": {
         "runtime": {
           "lib/net8.0/YamlDotNet.dll": {
@@ -1581,6 +1658,13 @@
       "sha512": "sha512-rinRnW6BVINuvoaeqgKENhE4XBcBU+PNVL/flLFLqIcokcu61ew+P5tjxy20uDsduE/MclFOHxmQURCgYl7ODg==",
       "path": "com.ctrip.framework.apollo.configuration/2.4.0",
       "hashPath": "com.ctrip.framework.apollo.configuration.2.4.0.nupkg.sha512"
+    },
+    "Fluid.Core/2.25.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6fTSIHXgC+7fxFE4b3YADi0M4DmuWGDD8GUtZTqIXCcdqazbI1ve68EnpVQkgW6LbLkXL2Wo3s1aGT6vbmRsiA==",
+      "path": "fluid.core/2.25.0",
+      "hashPath": "fluid.core.2.25.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -1799,12 +1883,12 @@
       "path": "microsoft.extensions.dependencymodel/9.0.9",
       "hashPath": "microsoft.extensions.dependencymodel.9.0.9.nupkg.sha512"
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.6": {
+    "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HjEWm0GNHeN8ykVGn2DCebBEdZYL9CVypVAysaDHfjwiRT1d8nRhYGH8ua0mheE1TIep5+86O2Ft0UcbuWyghg==",
-      "path": "microsoft.extensions.fileproviders.abstractions/3.1.6",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.3.1.6.nupkg.sha512"
+      "sha512": "sha512-uK439QzYR0q2emLVtYzwyK3x+T5bTY4yWsd/k/ZUS9LR6Sflp8MIdhGXW8kQCd86dQD4tLqvcbLkku8qHY263Q==",
+      "path": "microsoft.extensions.fileproviders.abstractions/9.0.0",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
       "type": "package",
@@ -1890,12 +1974,12 @@
       "path": "mono.texttemplating/3.0.0",
       "hashPath": "mono.texttemplating.3.0.0.nupkg.sha512"
     },
-    "Namotion.Reflection/3.4.2": {
+    "Namotion.Reflection/3.4.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZHrvPdAg7zV78iOTiH9ua+34rBfn4iH6Bjfo2bzUHOGD3KkjGUvqxBFy+v9p6qwV+GEeYWl4NOqXH8tVcZOMpw==",
-      "path": "namotion.reflection/3.4.2",
-      "hashPath": "namotion.reflection.3.4.2.nupkg.sha512"
+      "sha512": "sha512-KLk2gLR9f8scM82EiL+p9TONXXPy9+IAZVMzJOA/Wsa7soZD7UJGG6j0fq0D9ZoVnBRRnSeEC7kShhRo3Olgaw==",
+      "path": "namotion.reflection/3.4.3",
+      "hashPath": "namotion.reflection.3.4.3.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",
@@ -1918,19 +2002,33 @@
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
     },
-    "NJsonSchema/11.4.0": {
+    "NJsonSchema/11.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0q6mr6eJk/D4jPFKyRwAPauedZK60yFE5rjA3+aqCdQm9kGE9J8xygRrLfk0Ms8wBviWbLlaZYzqAteG3b6Yag==",
-      "path": "njsonschema/11.4.0",
-      "hashPath": "njsonschema.11.4.0.nupkg.sha512"
+      "sha512": "sha512-PHBL8EZOXEflWdztsZTYKJp2PhVsMt8bsbWJzy8VI5lq/6sufvNOsylFThwcGplw1bj+eiHSYue76uLqQQgSGg==",
+      "path": "njsonschema/11.5.0",
+      "hashPath": "njsonschema.11.5.0.nupkg.sha512"
     },
-    "NJsonSchema.Annotations/11.4.0": {
+    "NJsonSchema.Annotations/11.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fKAGyIU9s18e9GAdNbEr2PmZdpBqb1RdAr2+EHHrdkSZNoYtwFcmN6syJaxYxeEFegoLbC3e+EU5eb7Tt1ph3Q==",
-      "path": "njsonschema.annotations/11.4.0",
-      "hashPath": "njsonschema.annotations.11.4.0.nupkg.sha512"
+      "sha512": "sha512-X2BYA60mL9wAJBFTKfe9R0ozMb5j2bU38vrl0y7VKWcHMNTrPR98Tma/AxNc+D+a+6LoMF8wjba/RD7LSxp5rg==",
+      "path": "njsonschema.annotations/11.5.0",
+      "hashPath": "njsonschema.annotations.11.5.0.nupkg.sha512"
+    },
+    "NJsonSchema.CodeGeneration/11.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7Z9ZtXHc1YJmZKZ5IiqglJXXcHFuZW57epa2N1fkcr15+EAwB8WfxdVj8+/7wbUYtrUHrrWbClcuV3vAkcrxkA==",
+      "path": "njsonschema.codegeneration/11.5.0",
+      "hashPath": "njsonschema.codegeneration.11.5.0.nupkg.sha512"
+    },
+    "NJsonSchema.CodeGeneration.TypeScript/11.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e9aSV/nGBq331taGNlFIhQ2If7sBRkxSjIV2hbRrxg6OYrNQ6fKm5w/HreadgshHRTlXWqJ1vqiqogX3e5IcGw==",
+      "path": "njsonschema.codegeneration.typescript/11.5.0",
+      "hashPath": "njsonschema.codegeneration.typescript.11.5.0.nupkg.sha512"
     },
     "NJsonSchema.NewtonsoftJson/11.4.0": {
       "type": "package",
@@ -1974,12 +2072,26 @@
       "path": "nswag.aspnetcore/14.5.0",
       "hashPath": "nswag.aspnetcore.14.5.0.nupkg.sha512"
     },
-    "NSwag.Core/14.5.0": {
+    "NSwag.CodeGeneration/14.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hpTmWTO6azAIuCyBZj3PKkkUOcztquyu3LTJJcaA2f/gjaj3gwg5kEyvSVYHNIgU93+gEJIVkh4Rk/EiFnoW9w==",
-      "path": "nswag.core/14.5.0",
-      "hashPath": "nswag.core.14.5.0.nupkg.sha512"
+      "sha512": "sha512-ui09ve7A3+FVfAjB/+hTR3ViUThucaX4z4GMMyzGmtngSizVKAVB93AH4ljM7TjDeMsGNZHa29HcgXeaMXGQJA==",
+      "path": "nswag.codegeneration/14.6.0",
+      "hashPath": "nswag.codegeneration.14.6.0.nupkg.sha512"
+    },
+    "NSwag.CodeGeneration.TypeScript/14.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cxcC0qUE9SIiXpd9AdTSnrOx3NSG7pexQtjzJD+GOC9iM60MHtS1a1hDgBJcHtQU5/h/ALVUDz4c6XI5cnPRkA==",
+      "path": "nswag.codegeneration.typescript/14.6.0",
+      "hashPath": "nswag.codegeneration.typescript.14.6.0.nupkg.sha512"
+    },
+    "NSwag.Core/14.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CAv9P15ZrDvjYWiMWVJXEN5jMXpMZiUyIjKZDy1UVZE/OGbsHt2Uzir4BRC8YfvpAT63LQdRZUB5vut767Tbcg==",
+      "path": "nswag.core/14.6.0",
+      "hashPath": "nswag.core.14.6.0.nupkg.sha512"
     },
     "NSwag.Core.Yaml/14.5.0": {
       "type": "package",
@@ -2001,6 +2113,13 @@
       "sha512": "sha512-wl8xX1JzcN7ZXLodh9yEZgbXJmFD7HQfFLnDDMBcwq7k3du3aRUtYvx1AZ/foutsP16ANL/8D1bKR4S5ZFOLTA==",
       "path": "nswag.generation.aspnetcore/14.5.0",
       "hashPath": "nswag.generation.aspnetcore.14.5.0.nupkg.sha512"
+    },
+    "Parlot/1.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oMftmeCsDPXbBgYQsVG4yuedvTVwSkZZHkKH1F4CpBkS9O99GrAV2sA8t7cC5CoVFPprmAFZThJMXjwu3ybgNg==",
+      "path": "parlot/1.4.0",
+      "hashPath": "parlot.1.4.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -2582,6 +2701,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "TimeZoneConverter/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sFbY65N/5GdsHx7nkdHFHUG+5Ar4W0w6Aks7Y2X+Q4NOTw6XyX2Il7jm+4tPkc//4mA3nG0RdxI8gKgoJitdLw==",
+      "path": "timezoneconverter/7.0.0",
+      "hashPath": "timezoneconverter.7.0.0.nupkg.sha512"
     },
     "YamlDotNet/16.3.0": {
       "type": "package",

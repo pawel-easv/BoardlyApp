@@ -39,6 +39,20 @@ export interface CreateBoardDto {
   description?: string | null;
 }
 
+export interface CreateTaskDto {
+  /** @format int32 */
+  boardId: number;
+  title?: string;
+  status?: string | null;
+}
+
+export interface UpdateTaskDto {
+  /** @format int32 */
+  taskId: number;
+  title?: string;
+  status?: string;
+}
+
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
 
@@ -323,13 +337,55 @@ export class Api<
         ...params,
       }),
   };
+  createTaskWithApiAndReturn = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsCreateTaskWithApiAndReturn
+     * @request POST:/CreateTaskWithApiAndReturn
+     */
+    boardsCreateTaskWithApiAndReturn: (
+      data: CreateTaskDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<TaskDto, any>({
+        path: `/CreateTaskWithApiAndReturn`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  updateTaskWithApiAndReturn = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsUpdateTaskWithApiAndReturn
+     * @request PUT:/UpdateTaskWithApiAndReturn
+     */
+    boardsUpdateTaskWithApiAndReturn: (
+      data: UpdateTaskDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<TaskDto, any>({
+        path: `/UpdateTaskWithApiAndReturn`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
   getAllBoards = {
     /**
      * No description
      *
      * @tags Boards
      * @name BoardsGetAllBoards
-     * @request POST:/GetAllBoards
+     * @request GET:/GetAllBoards
      */
     boardsGetAllBoards: (
       query?: {
@@ -340,7 +396,7 @@ export class Api<
     ) =>
       this.request<BoardDto[], any>({
         path: `/GetAllBoards`,
-        method: "POST",
+        method: "GET",
         query: query,
         format: "json",
         ...params,

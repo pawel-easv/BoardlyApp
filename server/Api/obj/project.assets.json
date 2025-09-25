@@ -54,6 +54,24 @@
           }
         }
       },
+      "Fluid.Core/2.25.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "9.0.0",
+          "Parlot": "1.4.0",
+          "TimeZoneConverter": "7.0.0"
+        },
+        "compile": {
+          "lib/net9.0/Fluid.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Fluid.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -773,20 +791,23 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.6": {
+      "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.6"
+          "Microsoft.Extensions.Primitives": "9.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+          "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+          "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
@@ -971,7 +992,7 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
-      "Namotion.Reflection/3.4.2": {
+      "Namotion.Reflection/3.4.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Namotion.Reflection.dll": {
@@ -1063,11 +1084,11 @@
           }
         }
       },
-      "NJsonSchema/11.4.0": {
+      "NJsonSchema/11.5.0": {
         "type": "package",
         "dependencies": {
-          "NJsonSchema.Annotations": "11.4.0",
-          "Namotion.Reflection": "3.4.2",
+          "NJsonSchema.Annotations": "11.5.0",
+          "Namotion.Reflection": "3.4.3",
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
@@ -1081,7 +1102,7 @@
           }
         }
       },
-      "NJsonSchema.Annotations/11.4.0": {
+      "NJsonSchema.Annotations/11.5.0": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NJsonSchema.Annotations.dll": {
@@ -1090,6 +1111,39 @@
         },
         "runtime": {
           "lib/netstandard2.0/NJsonSchema.Annotations.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NJsonSchema.CodeGeneration/11.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Fluid.Core": "2.25.0",
+          "NJsonSchema": "11.5.0"
+        },
+        "compile": {
+          "lib/net8.0/NJsonSchema.CodeGeneration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/NJsonSchema.CodeGeneration.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NJsonSchema.CodeGeneration.TypeScript/11.5.0": {
+        "type": "package",
+        "dependencies": {
+          "NJsonSchema.CodeGeneration": "11.5.0"
+        },
+        "compile": {
+          "lib/net8.0/NJsonSchema.CodeGeneration.TypeScript.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/NJsonSchema.CodeGeneration.TypeScript.dll": {
             "related": ".xml"
           }
         }
@@ -1201,7 +1255,41 @@
           "buildMultiTargeting/NSwag.AspNetCore.targets": {}
         }
       },
-      "NSwag.Core/14.5.0": {
+      "NSwag.CodeGeneration/14.6.0": {
+        "type": "package",
+        "dependencies": {
+          "NJsonSchema.CodeGeneration": "11.5.0",
+          "NSwag.Core": "14.6.0"
+        },
+        "compile": {
+          "lib/net8.0/NSwag.CodeGeneration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/NSwag.CodeGeneration.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NSwag.CodeGeneration.TypeScript/14.6.0": {
+        "type": "package",
+        "dependencies": {
+          "NJsonSchema.CodeGeneration.TypeScript": "11.5.0",
+          "NSwag.CodeGeneration": "14.6.0"
+        },
+        "compile": {
+          "lib/net8.0/NSwag.CodeGeneration.TypeScript.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/NSwag.CodeGeneration.TypeScript.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NSwag.Core/14.6.0": {
         "type": "package",
         "dependencies": {
           "NJsonSchema": "11.4.0"
@@ -1265,6 +1353,19 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Parlot/1.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Parlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Parlot.dll": {
+            "related": ".xml"
+          }
+        }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
@@ -2708,6 +2809,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "TimeZoneConverter/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/TimeZoneConverter.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/TimeZoneConverter.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "YamlDotNet/16.3.0": {
         "type": "package",
         "compile": {
@@ -2782,6 +2896,28 @@
         "lib/netstandard2.0/Com.Ctrip.Framework.Apollo.Configuration.dll",
         "lib/netstandard2.0/Com.Ctrip.Framework.Apollo.Configuration.pdb",
         "lib/netstandard2.0/Com.Ctrip.Framework.Apollo.Configuration.xml"
+      ]
+    },
+    "Fluid.Core/2.25.0": {
+      "sha512": "6fTSIHXgC+7fxFE4b3YADi0M4DmuWGDD8GUtZTqIXCcdqazbI1ve68EnpVQkgW6LbLkXL2Wo3s1aGT6vbmRsiA==",
+      "type": "package",
+      "path": "fluid.core/2.25.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluid.core.2.25.0.nupkg.sha512",
+        "fluid.core.nuspec",
+        "lib/net8.0/Fluid.dll",
+        "lib/net8.0/Fluid.pdb",
+        "lib/net8.0/Fluid.xml",
+        "lib/net9.0/Fluid.dll",
+        "lib/net9.0/Fluid.pdb",
+        "lib/net9.0/Fluid.xml",
+        "lib/netstandard2.0/Fluid.dll",
+        "lib/netstandard2.0/Fluid.pdb",
+        "lib/netstandard2.0/Fluid.xml",
+        "logo_64x64.png"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -4189,20 +4325,32 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.6": {
-      "sha512": "HjEWm0GNHeN8ykVGn2DCebBEdZYL9CVypVAysaDHfjwiRT1d8nRhYGH8ua0mheE1TIep5+86O2Ft0UcbuWyghg==",
+    "Microsoft.Extensions.FileProviders.Abstractions/9.0.0": {
+      "sha512": "uK439QzYR0q2emLVtYzwyK3x+T5bTY4yWsd/k/ZUS9LR6Sflp8MIdhGXW8kQCd86dQD4tLqvcbLkku8qHY263Q==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.abstractions/3.1.6",
+      "path": "microsoft.extensions.fileproviders.abstractions/9.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.FileProviders.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.FileProviders.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
-        "microsoft.extensions.fileproviders.abstractions.3.1.6.nupkg.sha512",
-        "microsoft.extensions.fileproviders.abstractions.nuspec"
+        "microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
@@ -4526,10 +4674,10 @@
         "readme.md"
       ]
     },
-    "Namotion.Reflection/3.4.2": {
-      "sha512": "ZHrvPdAg7zV78iOTiH9ua+34rBfn4iH6Bjfo2bzUHOGD3KkjGUvqxBFy+v9p6qwV+GEeYWl4NOqXH8tVcZOMpw==",
+    "Namotion.Reflection/3.4.3": {
+      "sha512": "KLk2gLR9f8scM82EiL+p9TONXXPy9+IAZVMzJOA/Wsa7soZD7UJGG6j0fq0D9ZoVnBRRnSeEC7kShhRo3Olgaw==",
       "type": "package",
-      "path": "namotion.reflection/3.4.2",
+      "path": "namotion.reflection/3.4.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4540,7 +4688,7 @@
         "lib/net8.0/Namotion.Reflection.xml",
         "lib/netstandard2.0/Namotion.Reflection.dll",
         "lib/netstandard2.0/Namotion.Reflection.xml",
-        "namotion.reflection.3.4.2.nupkg.sha512",
+        "namotion.reflection.3.4.3.nupkg.sha512",
         "namotion.reflection.nuspec"
       ]
     },
@@ -4602,10 +4750,10 @@
         "newtonsoft.json.bson.nuspec"
       ]
     },
-    "NJsonSchema/11.4.0": {
-      "sha512": "0q6mr6eJk/D4jPFKyRwAPauedZK60yFE5rjA3+aqCdQm9kGE9J8xygRrLfk0Ms8wBviWbLlaZYzqAteG3b6Yag==",
+    "NJsonSchema/11.5.0": {
+      "sha512": "PHBL8EZOXEflWdztsZTYKJp2PhVsMt8bsbWJzy8VI5lq/6sufvNOsylFThwcGplw1bj+eiHSYue76uLqQQgSGg==",
       "type": "package",
-      "path": "njsonschema/11.4.0",
+      "path": "njsonschema/11.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4616,14 +4764,14 @@
         "lib/net8.0/NJsonSchema.xml",
         "lib/netstandard2.0/NJsonSchema.dll",
         "lib/netstandard2.0/NJsonSchema.xml",
-        "njsonschema.11.4.0.nupkg.sha512",
+        "njsonschema.11.5.0.nupkg.sha512",
         "njsonschema.nuspec"
       ]
     },
-    "NJsonSchema.Annotations/11.4.0": {
-      "sha512": "fKAGyIU9s18e9GAdNbEr2PmZdpBqb1RdAr2+EHHrdkSZNoYtwFcmN6syJaxYxeEFegoLbC3e+EU5eb7Tt1ph3Q==",
+    "NJsonSchema.Annotations/11.5.0": {
+      "sha512": "X2BYA60mL9wAJBFTKfe9R0ozMb5j2bU38vrl0y7VKWcHMNTrPR98Tma/AxNc+D+a+6LoMF8wjba/RD7LSxp5rg==",
       "type": "package",
-      "path": "njsonschema.annotations/11.4.0",
+      "path": "njsonschema.annotations/11.5.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4632,8 +4780,44 @@
         "lib/net462/NJsonSchema.Annotations.xml",
         "lib/netstandard2.0/NJsonSchema.Annotations.dll",
         "lib/netstandard2.0/NJsonSchema.Annotations.xml",
-        "njsonschema.annotations.11.4.0.nupkg.sha512",
+        "njsonschema.annotations.11.5.0.nupkg.sha512",
         "njsonschema.annotations.nuspec"
+      ]
+    },
+    "NJsonSchema.CodeGeneration/11.5.0": {
+      "sha512": "7Z9ZtXHc1YJmZKZ5IiqglJXXcHFuZW57epa2N1fkcr15+EAwB8WfxdVj8+/7wbUYtrUHrrWbClcuV3vAkcrxkA==",
+      "type": "package",
+      "path": "njsonschema.codegeneration/11.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net462/NJsonSchema.CodeGeneration.dll",
+        "lib/net462/NJsonSchema.CodeGeneration.xml",
+        "lib/net8.0/NJsonSchema.CodeGeneration.dll",
+        "lib/net8.0/NJsonSchema.CodeGeneration.xml",
+        "lib/netstandard2.0/NJsonSchema.CodeGeneration.dll",
+        "lib/netstandard2.0/NJsonSchema.CodeGeneration.xml",
+        "njsonschema.codegeneration.11.5.0.nupkg.sha512",
+        "njsonschema.codegeneration.nuspec"
+      ]
+    },
+    "NJsonSchema.CodeGeneration.TypeScript/11.5.0": {
+      "sha512": "e9aSV/nGBq331taGNlFIhQ2If7sBRkxSjIV2hbRrxg6OYrNQ6fKm5w/HreadgshHRTlXWqJ1vqiqogX3e5IcGw==",
+      "type": "package",
+      "path": "njsonschema.codegeneration.typescript/11.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net462/NJsonSchema.CodeGeneration.TypeScript.dll",
+        "lib/net462/NJsonSchema.CodeGeneration.TypeScript.xml",
+        "lib/net8.0/NJsonSchema.CodeGeneration.TypeScript.dll",
+        "lib/net8.0/NJsonSchema.CodeGeneration.TypeScript.xml",
+        "lib/netstandard2.0/NJsonSchema.CodeGeneration.TypeScript.dll",
+        "lib/netstandard2.0/NJsonSchema.CodeGeneration.TypeScript.xml",
+        "njsonschema.codegeneration.typescript.11.5.0.nupkg.sha512",
+        "njsonschema.codegeneration.typescript.nuspec"
       ]
     },
     "NJsonSchema.NewtonsoftJson/11.4.0": {
@@ -4744,10 +4928,46 @@
         "nswag.aspnetcore.nuspec"
       ]
     },
-    "NSwag.Core/14.5.0": {
-      "sha512": "hpTmWTO6azAIuCyBZj3PKkkUOcztquyu3LTJJcaA2f/gjaj3gwg5kEyvSVYHNIgU93+gEJIVkh4Rk/EiFnoW9w==",
+    "NSwag.CodeGeneration/14.6.0": {
+      "sha512": "ui09ve7A3+FVfAjB/+hTR3ViUThucaX4z4GMMyzGmtngSizVKAVB93AH4ljM7TjDeMsGNZHa29HcgXeaMXGQJA==",
       "type": "package",
-      "path": "nswag.core/14.5.0",
+      "path": "nswag.codegeneration/14.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net462/NSwag.CodeGeneration.dll",
+        "lib/net462/NSwag.CodeGeneration.xml",
+        "lib/net8.0/NSwag.CodeGeneration.dll",
+        "lib/net8.0/NSwag.CodeGeneration.xml",
+        "lib/netstandard2.0/NSwag.CodeGeneration.dll",
+        "lib/netstandard2.0/NSwag.CodeGeneration.xml",
+        "nswag.codegeneration.14.6.0.nupkg.sha512",
+        "nswag.codegeneration.nuspec"
+      ]
+    },
+    "NSwag.CodeGeneration.TypeScript/14.6.0": {
+      "sha512": "cxcC0qUE9SIiXpd9AdTSnrOx3NSG7pexQtjzJD+GOC9iM60MHtS1a1hDgBJcHtQU5/h/ALVUDz4c6XI5cnPRkA==",
+      "type": "package",
+      "path": "nswag.codegeneration.typescript/14.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net462/NSwag.CodeGeneration.TypeScript.dll",
+        "lib/net462/NSwag.CodeGeneration.TypeScript.xml",
+        "lib/net8.0/NSwag.CodeGeneration.TypeScript.dll",
+        "lib/net8.0/NSwag.CodeGeneration.TypeScript.xml",
+        "lib/netstandard2.0/NSwag.CodeGeneration.TypeScript.dll",
+        "lib/netstandard2.0/NSwag.CodeGeneration.TypeScript.xml",
+        "nswag.codegeneration.typescript.14.6.0.nupkg.sha512",
+        "nswag.codegeneration.typescript.nuspec"
+      ]
+    },
+    "NSwag.Core/14.6.0": {
+      "sha512": "CAv9P15ZrDvjYWiMWVJXEN5jMXpMZiUyIjKZDy1UVZE/OGbsHt2Uzir4BRC8YfvpAT63LQdRZUB5vut767Tbcg==",
+      "type": "package",
+      "path": "nswag.core/14.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4758,7 +4978,7 @@
         "lib/net8.0/NSwag.Core.xml",
         "lib/netstandard2.0/NSwag.Core.dll",
         "lib/netstandard2.0/NSwag.Core.xml",
-        "nswag.core.14.5.0.nupkg.sha512",
+        "nswag.core.14.6.0.nupkg.sha512",
         "nswag.core.nuspec"
       ]
     },
@@ -4813,6 +5033,25 @@
         "lib/netstandard2.0/NSwag.Generation.AspNetCore.xml",
         "nswag.generation.aspnetcore.14.5.0.nupkg.sha512",
         "nswag.generation.aspnetcore.nuspec"
+      ]
+    },
+    "Parlot/1.4.0": {
+      "sha512": "oMftmeCsDPXbBgYQsVG4yuedvTVwSkZZHkKH1F4CpBkS9O99GrAV2sA8t7cC5CoVFPprmAFZThJMXjwu3ybgNg==",
+      "type": "package",
+      "path": "parlot/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/Parlot.dll",
+        "lib/net472/Parlot.xml",
+        "lib/net6.0/Parlot.dll",
+        "lib/net6.0/Parlot.xml",
+        "lib/net8.0/Parlot.dll",
+        "lib/net8.0/Parlot.xml",
+        "lib/netstandard2.0/Parlot.dll",
+        "lib/netstandard2.0/Parlot.xml",
+        "parlot.1.4.0.nupkg.sha512",
+        "parlot.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -8431,6 +8670,28 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "TimeZoneConverter/7.0.0": {
+      "sha512": "sFbY65N/5GdsHx7nkdHFHUG+5Ar4W0w6Aks7Y2X+Q4NOTw6XyX2Il7jm+4tPkc//4mA3nG0RdxI8gKgoJitdLw==",
+      "type": "package",
+      "path": "timezoneconverter/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/TimeZoneConverter.dll",
+        "lib/net462/TimeZoneConverter.xml",
+        "lib/net6.0/TimeZoneConverter.dll",
+        "lib/net6.0/TimeZoneConverter.xml",
+        "lib/net8.0/TimeZoneConverter.dll",
+        "lib/net8.0/TimeZoneConverter.xml",
+        "lib/net9.0/TimeZoneConverter.dll",
+        "lib/net9.0/TimeZoneConverter.xml",
+        "lib/netstandard2.0/TimeZoneConverter.dll",
+        "lib/netstandard2.0/TimeZoneConverter.xml",
+        "timezoneconverter.7.0.0.nupkg.sha512",
+        "timezoneconverter.nuspec"
+      ]
+    },
     "YamlDotNet/16.3.0": {
       "sha512": "SgMOdxbz8X65z8hraIs6hOEdnkH6hESTAIUa7viEngHOYaH+6q5XJmwr1+yb9vJpNQ19hCQY69xbFsLtXpobQA==",
       "type": "package",
@@ -8470,6 +8731,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.9",
       "Microsoft.Extensions.DependencyInjection >= 10.0.0-rc.1.25451.107",
       "NSwag.AspNetCore >= 14.5.0",
+      "NSwag.CodeGeneration.TypeScript >= 14.6.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4"
     ]
   },
@@ -8479,11 +8741,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/paul/Desktop/school/SeptProj/Backend/Api/Api.csproj",
+      "projectUniqueName": "/Users/paul/Desktop/school/SeptProj/server/Api/Api.csproj",
       "projectName": "Api",
-      "projectPath": "/Users/paul/Desktop/school/SeptProj/Backend/Api/Api.csproj",
+      "projectPath": "/Users/paul/Desktop/school/SeptProj/server/Api/Api.csproj",
       "packagesPath": "/Users/paul/.nuget/packages/",
-      "outputPath": "/Users/paul/Desktop/school/SeptProj/Backend/Api/obj/",
+      "outputPath": "/Users/paul/Desktop/school/SeptProj/server/Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/paul/.nuget/NuGet/NuGet.Config"
@@ -8498,8 +8760,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/DataAccess.csproj": {
-              "projectPath": "/Users/paul/Desktop/school/SeptProj/Backend/DataAccess/DataAccess.csproj"
+            "/Users/paul/Desktop/school/SeptProj/server/DataAccess/DataAccess.csproj": {
+              "projectPath": "/Users/paul/Desktop/school/SeptProj/server/DataAccess/DataAccess.csproj"
             }
           }
         }
@@ -8551,6 +8813,10 @@
           "NSwag.AspNetCore": {
             "target": "Package",
             "version": "[14.5.0, )"
+          },
+          "NSwag.CodeGeneration.TypeScript": {
+            "target": "Package",
+            "version": "[14.6.0, )"
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",

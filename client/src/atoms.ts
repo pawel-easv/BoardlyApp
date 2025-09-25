@@ -14,4 +14,3 @@ export const ThemeAtom = atom("coffee");
 
 export const AllBoardsAtom = atom<BoardDto[]>([]);
 
-// export const UserAtom = atom<UserDto[]>([]);

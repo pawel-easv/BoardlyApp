@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TaRVtSTEuVs=",
+  "dgSpecHash": "SHS3WqclSng=",
   "success": true,
-  "projectFilePath": "/Users/paul/Desktop/school/SeptProj/Backend/tests/tests.csproj",
+  "projectFilePath": "/Users/paul/Desktop/school/SeptProj/server/tests/tests.csproj",
   "expectedPackageFiles": [
     "/Users/paul/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "/Users/paul/.nuget/packages/microsoft.codecoverage/17.13.0/microsoft.codecoverage.17.13.0.nupkg.sha512",

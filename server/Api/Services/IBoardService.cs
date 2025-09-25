@@ -1,0 +1,12 @@
+using App.dtos.reponses;
+using App.dtos.requests;
+
+namespace api.Services;
+
+public interface IBoardService
+{
+    Task<BoardDto> CreateBoard(CreateBoardDto dto);
+    Task<List<BoardDto>> GetAllBoards(int userId);
+    Task<TaskDto> CreateTask(CreateTaskDto dto);
+    Task<TaskDto> UpdateTask(UpdateTaskDto dto);
+}
