@@ -30,4 +30,10 @@ public class BoardsController(IBoardService _service) : ControllerBase
     {
         return _service.GetAllBoards(userId);
     }
+    
+    [HttpGet(nameof(GetAllTasksForBoard))]
+    public Task<List<TaskDto>> GetAllTasksForBoard([FromQuery] int boardId)
+    {
+        return _service.GetAllTasksForBoard(boardId);
+    }
 }

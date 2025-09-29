@@ -42,6 +42,14 @@ public class BoardService : IBoardService
             .ToListAsync();
     }
 
+    public async Task<List<TaskDto>> GetAllTasksForBoard(int boardId)
+    {
+        return await _ctx.Tasks
+            .Where(ub => ub.BoardId == boardId)
+            .Select(ub => new TaskDto(ub))
+            .ToListAsync();
+    }
+
     public Task<TaskDto> CreateTask(CreateTaskDto dto)
     {
         Validator.ValidateObject(dto, new ValidationContext(dto), true);

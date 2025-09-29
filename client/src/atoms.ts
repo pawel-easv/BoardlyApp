@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import type {BoardDto} from "../Api.ts";
+import type {BoardDto, TaskDto} from "../Api.ts";
 
 // @ts-ignore
 export enum ColorTheme {
@@ -9,8 +9,10 @@ export enum ColorTheme {
     NIGHT = "night",
     DRACULA = "dracula",
     PASTEL = "pastel",
+    CYBERPUNK = "cyberpunk",
 }
 export const ThemeAtom = atom("coffee");
 
 export const AllBoardsAtom = atom<BoardDto[]>([]);
 
+export const TasksAtom = atom<TaskDto[]>([]);

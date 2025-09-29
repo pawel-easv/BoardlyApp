@@ -106,7 +106,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = "http://localhost:5033";
+  public baseUrl: string = "https://server-boardly.fly.dev";
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
   private abortControllers = new Map<CancelToken, AbortController>();
@@ -311,7 +311,7 @@ export class HttpClient<SecurityDataType = unknown> {
 /**
  * @title My Title
  * @version 1.0.0
- * @baseUrl http://localhost:5033
+ * @baseUrl https://server-boardly.fly.dev
  */
 export class Api<
   SecurityDataType extends unknown,
@@ -396,6 +396,29 @@ export class Api<
     ) =>
       this.request<BoardDto[], any>({
         path: `/GetAllBoards`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
+  getAllTasksForBoard = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsGetAllTasksForBoard
+     * @request GET:/GetAllTasksForBoard
+     */
+    boardsGetAllTasksForBoard: (
+      query?: {
+        /** @format int32 */
+        boardId?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<TaskDto[], any>({
+        path: `/GetAllTasksForBoard`,
         method: "GET",
         query: query,
         format: "json",

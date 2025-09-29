@@ -2,7 +2,9 @@ import TaskComponent from "./TaskComponent.tsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Droppable, Draggable } from "@hello-pangea/dnd";
-import { Api, type TaskDto } from "../../Api.ts";
+import { Api } from "../../Api.ts";
+import { useAtom } from "jotai";
+import { TasksAtom } from "../atoms.ts";
 
 const api = new Api();
 
@@ -10,18 +12,12 @@ interface TaskListProps {
     id: string;
     title: string;
     boardId: string;
-    tasks: TaskDto[];
-    onTaskAdd: (task: TaskDto) => void;
-    onTaskUpdate: (task: TaskDto) => void;
 }
 
-export default function TaskList({
-                                     id,
-                                     title,
-                                     boardId,
-                                     onTaskAdd,
-                                     tasks,
-                                 }: TaskListProps) {
+export default function TaskList({ id, title, boardId }: TaskListProps) {
+    const [tasks, setTasks] = useAtom(TasksAtom);
+
+    const tasksForThisList = tasks.filter((t) => t.status === id);
 
     const addNewTask = async () => {
         try {
@@ -30,7 +26,7 @@ export default function TaskList({
                 title: "New Task",
                 status: id,
             });
-            onTaskAdd(created.data);
+            setTasks((prev) => [...prev, created.data]);
         } catch (err) {
             console.error("Failed to create task", err);
         }
@@ -44,9 +40,11 @@ export default function TaskList({
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                 >
-                    <h1 className="text-xl w-full text-left ml-4 mt-2 mb-2">{title}</h1>
+                    <h1 className="text-xl w-full text-left ml-4 mt-2 mb-2">
+                        {title}
+                    </h1>
 
-                    {tasks.map((task, index) => (
+                    {tasksForThisList.map((task, index) => (
                         <Draggable
                             key={task.taskId!.toString()}
                             draggableId={task.taskId!.toString()}

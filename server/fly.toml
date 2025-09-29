@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for boardly on 2025-09-24T19:08:51+02:00
+# fly.toml app configuration file generated for server-boardly on 2025-09-26T13:34:43+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'boardly'
+app = 'server-boardly'
 primary_region = 'ams'
 
 [build]

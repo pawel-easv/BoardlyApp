@@ -9,4 +9,5 @@ public interface IBoardService
     Task<List<BoardDto>> GetAllBoards(int userId);
     Task<TaskDto> CreateTask(CreateTaskDto dto);
     Task<TaskDto> UpdateTask(UpdateTaskDto dto);
+    Task<List<TaskDto>> GetAllTasksForBoard(int boardId);
 }
