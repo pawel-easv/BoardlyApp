@@ -15,7 +15,7 @@ public class BoardService : IBoardService
         _ctx = ctx;
     }
 
-    public Task<BoardDto> CreateBoard(CreateBoardDto dto)
+    public async Task<BoardDto> CreateBoard(CreateBoardDto dto)
     {
         Validator.ValidateObject(dto, new ValidationContext(dto), true);
 
@@ -27,9 +27,9 @@ public class BoardService : IBoardService
         };
 
         _ctx.Boards.Add(board);
-        _ctx.SaveChanges();
+        await _ctx.SaveChangesAsync();
 
-        return Task.FromResult(new BoardDto(board));
+        return new BoardDto(board);
     }
 
     public async Task<List<BoardDto>> GetAllBoards(int userId)
@@ -50,7 +50,7 @@ public class BoardService : IBoardService
             .ToListAsync();
     }
 
-    public Task<TaskDto> CreateTask(CreateTaskDto dto)
+    public async Task<TaskDto> CreateTask(CreateTaskDto dto)
     {
         Validator.ValidateObject(dto, new ValidationContext(dto), true);
 
@@ -63,9 +63,9 @@ public class BoardService : IBoardService
         };
 
         _ctx.Tasks.Add(task);
-        _ctx.SaveChanges();
+        await _ctx.SaveChangesAsync();
 
-        return Task.FromResult(new TaskDto(task));
+        return new TaskDto(task);
     }
 
     public async Task<TaskDto> UpdateTask(UpdateTaskDto dto)
@@ -80,6 +80,14 @@ public class BoardService : IBoardService
         task.Status = dto.Status;
         await _ctx.SaveChangesAsync();
 
+        return new TaskDto(task);
+    }
+    
+    public async Task<TaskDto> DeleteTask(int id)
+    {
+        var task = _ctx.Tasks.First(t => t.TaskId == id);
+        _ctx.Tasks.Remove(task);
+        await _ctx.SaveChangesAsync();
         return new TaskDto(task);
     }
 }
