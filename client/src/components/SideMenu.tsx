@@ -1,7 +1,7 @@
 import {faChalkboard, faChalkboardUser} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useSetAtom} from "jotai";
-import {ColorTheme, ThemeAtom} from "../atoms.ts";
+import {useAtom, useSetAtom} from "jotai";
+import {AllBoardsAtom, ColorTheme, ThemeAtom} from "../atoms.ts";
 import {Api} from "../../Api.ts";
 
 const api = new Api();
@@ -9,6 +9,7 @@ const api = new Api();
 
 export default function SideMenu() {
     const setThemeAtom = useSetAtom(ThemeAtom);
+    const [boards, setBoards] = useAtom(AllBoardsAtom);
 
     function ToggleColorTheme(colorTheme: ColorTheme) {
         setThemeAtom(colorTheme);
@@ -19,11 +20,12 @@ export default function SideMenu() {
     }
 
     async function createNewBoard() {
-        const response = await api.createBoardWithApiAndReturn.boardsCreateBoardWithApiAndReturn({
-            userId: 0,
+        const response = await api.createBoard.boardsCreateBoard({
+            userId: 1,
             description: undefined,
             title: "New Board",
         });
+        setBoards([...boards, response.data]);
         return response;
     }
 

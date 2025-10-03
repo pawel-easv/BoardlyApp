@@ -26,7 +26,28 @@ public class BoardService : IBoardService
             CreatedAt = DateTime.Now
         };
 
+        var userBoard = new UserBoard
+        {
+            UserId = dto.UserId,
+            Board = board
+        };
+
         _ctx.Boards.Add(board);
+        _ctx.UserBoards.Add(userBoard);
+        await _ctx.SaveChangesAsync();
+
+        return new BoardDto(board);
+    }
+    
+    public async Task<BoardDto> UpdateBoard(UpdateBoardDto dto)
+    {
+        Validator.ValidateObject(dto, new ValidationContext(dto), true);
+
+        var board = await _ctx.Boards.FirstOrDefaultAsync(b => b.BoardId == dto.BoardId);
+        if (board == null)
+            throw new InvalidOperationException($"Board with ID {dto.BoardId} not found.");
+
+        board.Title = dto.Title;
         await _ctx.SaveChangesAsync();
 
         return new BoardDto(board);

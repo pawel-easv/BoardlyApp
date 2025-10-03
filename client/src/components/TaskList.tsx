@@ -21,7 +21,7 @@ export default function TaskList({ id, title, boardId }: TaskListProps) {
 
     const addNewTask = async () => {
         try {
-            const created = await api.createTaskWithApiAndReturn.boardsCreateTaskWithApiAndReturn({
+            const created = await api.createTask.boardsCreateTask({
                 boardId: Number(boardId),
                 title: "New Task",
                 status: id,
@@ -36,7 +36,7 @@ export default function TaskList({ id, title, boardId }: TaskListProps) {
         <Droppable droppableId={id}>
             {(provided) => (
                 <div
-                    className="TaskList flex flex-col p-3 gap-4 min-w-[250px] bg-base-300/50 rounded-3xl"
+                    className="TaskList flex flex-col p-3 gap-4 w-[20vw] bg-base-300/50 rounded-3xl"
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                 >

@@ -53,6 +53,12 @@ export interface UpdateTaskDto {
   status?: string;
 }
 
+export interface UpdateBoardDto {
+  /** @format int32 */
+  boardId: number;
+  title?: string;
+}
+
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
 
@@ -316,20 +322,17 @@ export class HttpClient<SecurityDataType = unknown> {
 export class Api<
   SecurityDataType extends unknown,
 > extends HttpClient<SecurityDataType> {
-  createBoardWithApiAndReturn = {
+  createBoard = {
     /**
      * No description
      *
      * @tags Boards
-     * @name BoardsCreateBoardWithApiAndReturn
-     * @request POST:/CreateBoardWithApiAndReturn
+     * @name BoardsCreateBoard
+     * @request POST:/CreateBoard
      */
-    boardsCreateBoardWithApiAndReturn: (
-      data: CreateBoardDto,
-      params: RequestParams = {},
-    ) =>
+    boardsCreateBoard: (data: CreateBoardDto, params: RequestParams = {}) =>
       this.request<BoardDto, any>({
-        path: `/CreateBoardWithApiAndReturn`,
+        path: `/CreateBoard`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -337,20 +340,17 @@ export class Api<
         ...params,
       }),
   };
-  createTaskWithApiAndReturn = {
+  createTask = {
     /**
      * No description
      *
      * @tags Boards
-     * @name BoardsCreateTaskWithApiAndReturn
-     * @request POST:/CreateTaskWithApiAndReturn
+     * @name BoardsCreateTask
+     * @request POST:/CreateTask
      */
-    boardsCreateTaskWithApiAndReturn: (
-      data: CreateTaskDto,
-      params: RequestParams = {},
-    ) =>
+    boardsCreateTask: (data: CreateTaskDto, params: RequestParams = {}) =>
       this.request<TaskDto, any>({
-        path: `/CreateTaskWithApiAndReturn`,
+        path: `/CreateTask`,
         method: "POST",
         body: data,
         type: ContentType.Json,
@@ -358,20 +358,35 @@ export class Api<
         ...params,
       }),
   };
-  updateTaskWithApiAndReturn = {
+  updateTask = {
     /**
      * No description
      *
      * @tags Boards
-     * @name BoardsUpdateTaskWithApiAndReturn
-     * @request PUT:/UpdateTaskWithApiAndReturn
+     * @name BoardsUpdateTask
+     * @request PUT:/UpdateTask
      */
-    boardsUpdateTaskWithApiAndReturn: (
-      data: UpdateTaskDto,
-      params: RequestParams = {},
-    ) =>
+    boardsUpdateTask: (data: UpdateTaskDto, params: RequestParams = {}) =>
       this.request<TaskDto, any>({
-        path: `/UpdateTaskWithApiAndReturn`,
+        path: `/UpdateTask`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+  };
+  updateBoard = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsUpdateBoard
+     * @request PUT:/UpdateBoard
+     */
+    boardsUpdateBoard: (data: UpdateBoardDto, params: RequestParams = {}) =>
+      this.request<BoardDto, any>({
+        path: `/UpdateBoard`,
         method: "PUT",
         body: data,
         type: ContentType.Json,
@@ -420,6 +435,29 @@ export class Api<
       this.request<TaskDto[], any>({
         path: `/GetAllTasksForBoard`,
         method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
+  deleteTask = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsDeleteTask
+     * @request DELETE:/DeleteTask
+     */
+    boardsDeleteTask: (
+      query?: {
+        /** @format int32 */
+        taskId?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<TaskDto, any>({
+        path: `/DeleteTask`,
+        method: "DELETE",
         query: query,
         format: "json",
         ...params,

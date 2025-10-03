@@ -33,12 +33,17 @@ public class Program
 
         var app = builder.Build();
 
+        app.UseRouting();
+
         app.UseCors("AllowFrontend");
 
         app.UseOpenApi();
+        
         app.UseSwaggerUi();
+
         app.MapControllers();
-        app.GenerateApiClientsFromOpenApi("/../../client/src/models/generated-client.ts").GetAwaiter().GetResult();
+
         app.Run();
+
     }
 }

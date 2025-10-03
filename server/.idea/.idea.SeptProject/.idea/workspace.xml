@@ -10,7 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="048ca326-202c-446f-af21-c3224eff43b3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../client/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/Board.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Board.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/SideMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/SideMenu.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/components/TaskComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/TaskComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/TaskList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/TaskList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +188,8 @@
       <workItem from="1758732913286" duration="2652000" />
       <workItem from="1758783896941" duration="6139000" />
       <workItem from="1758880920119" duration="3432000" />
-      <workItem from="1759177091559" duration="2410000" />
+      <workItem from="1759177091559" duration="3983000" />
+      <workItem from="1759399269595" duration="2176000" />
     </task>
     <servers />
   </component>
@@ -210,6 +215,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Api/Services/BoardService.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/Api/Services/BoardService.cs" containingFunctionPresentation="Method 'CreateBoard'">
+            <startOffsets>
+              <option value="917" />
+            </startOffsets>
+            <endOffsets>
+              <option value="944" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
