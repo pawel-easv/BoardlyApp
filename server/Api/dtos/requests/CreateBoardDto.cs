@@ -4,7 +4,7 @@ namespace App.dtos.requests;
 
 public class CreateBoardDto
 {
-    [MinLength(4)] [Required] public string Title { get; set; }
+    [MinLength(3)] [Required] public string Title { get; set; }
     
     [Required]
     public int UserId { get; set; }

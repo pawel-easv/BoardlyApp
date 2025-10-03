@@ -1,4 +1,4 @@
-using api.Etc;
+namespace App;
 using api.Services;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
@@ -22,21 +22,10 @@ public class Program
         var builder = WebApplication.CreateBuilder();
         ConfigureServices(builder.Services);
 
-        builder.Services.AddCors(options =>
-        {
-            options.AddPolicy("AllowFrontend",
-                policy => policy
-                    .AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod());
-        });
-
         var app = builder.Build();
 
         app.UseRouting();
-
-        app.UseCors("AllowFrontend");
-
+        
         app.UseOpenApi();
         
         app.UseSwaggerUi();
