@@ -9,11 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="048ca326-202c-446f-af21-c3224eff43b3" name="Changes" comment="" />
+    <list default="true" id="048ca326-202c-446f-af21-c3224eff43b3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../client/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/Board.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Board.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -23,10 +30,12 @@
     <setting file="file://$PROJECT_DIR$/Api/Services/BoardService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Api/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Api/appsettings.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Api/controllers/BoardsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Api/dtos/reponses/BoardDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Api/dtos/requests/CreateBoardDto.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Api/obj/App.csproj.nuget.dgspec.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/46c73e495c10cebaff7ff53b6924a65af27378c69184ba9582781e5c6848887b/InvalidOperationException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9252544b4f2baba481147ec4edc77dfcdeeac280247e9c9a6514e0c979ca/NSwagApplicationBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f991feeb99e3f37c7c76150b38d692ac8a65a5520bffa4728b34999806b6fb7/Int32.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -46,6 +55,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Project.tests.executor&quot;: &quot;Run&quot;,
     &quot;Docker.Dockerfile build.executor&quot;: &quot;Run&quot;,
     &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
@@ -70,7 +80,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.Dockerfile build">
+  <component name="RunManager" selected=".NET Project.tests">
     <configuration name="tests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -184,7 +194,9 @@
       <workItem from="1758880920119" duration="3432000" />
       <workItem from="1759177091559" duration="3983000" />
       <workItem from="1759399269595" duration="2537000" />
-      <workItem from="1759500258926" duration="4896000" />
+      <workItem from="1759500258926" duration="6818000" />
+      <workItem from="1759582550849" duration="702000" />
+      <workItem from="1759614246824" duration="6414000" />
     </task>
     <servers />
   </component>
@@ -210,19 +222,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Api/Services/BoardService.cs</url>
-          <line>38</line>
-          <properties documentPath="$PROJECT_DIR$/Api/Services/BoardService.cs" containingFunctionPresentation="Method 'CreateBoard'">
-            <startOffsets>
-              <option value="917" />
-            </startOffsets>
-            <endOffsets>
-              <option value="944" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

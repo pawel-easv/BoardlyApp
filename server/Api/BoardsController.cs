@@ -30,6 +30,12 @@ public class BoardsController(IBoardService _service) : ControllerBase
     {
         return _service.UpdateBoard(dto);
     }
+    
+    [HttpDelete(nameof(DeleteBoard))]
+    public Task<BoardDto> DeleteBoard([FromQuery] int boardId)
+    {
+        return _service.DeleteBoard(boardId);
+    }
 
     [HttpGet(nameof(GetAllBoards))]
     public Task<List<BoardDto>> GetAllBoards([FromQuery] int userId)
@@ -47,5 +53,11 @@ public class BoardsController(IBoardService _service) : ControllerBase
     public Task<TaskDto> DeleteTask([FromQuery] int taskId)
     {
         return _service.DeleteTask(taskId);
+    }
+
+    [HttpDelete(nameof(DeleteAllTasksForBoard))]
+    public Task<BoardDto> DeleteAllTasksForBoard([FromQuery] int boardId)
+    {
+        return _service.DeleteAllTasksForBoard(boardId);
     }
 }

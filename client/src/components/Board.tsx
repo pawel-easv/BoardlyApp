@@ -2,9 +2,11 @@ import TaskList from "./TaskList.tsx";
 import { DragDropContext, type DropResult } from "@hello-pangea/dnd";
 import { useEffect, useState } from "react";
 import { Api } from "../../Api.ts";
-import { useParams } from "react-router";
+import {useNavigate, useParams} from "react-router";
 import { useAtom } from "jotai";
 import { AllBoardsAtom, TasksAtom } from "../atoms.ts";
+import {faEraser, faTrash} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const api = new Api();
 
@@ -19,6 +21,7 @@ const COLUMN_CONFIG = [
 ] as const;
 
 export default function Board() {
+    const navigate = useNavigate();
     const params = useParams<BoardProps>();
     const [boards, setBoards] = useAtom(AllBoardsAtom);
     const currentBoard = boards.find(({ boardId }) => boardId == params.boardId);
@@ -75,6 +78,32 @@ export default function Board() {
             console.error("Failed to update task:", err);
         }
     };
+
+    const deleteAllTasks = async () => {
+        if (!currentBoard) return;
+
+        try {
+            await api.deleteAllTasksForBoard.boardsDeleteAllTasksForBoard({
+                boardId: currentBoard.boardId,
+            });
+
+            setTasks((prev) => prev.filter(t => t.boardId !== currentBoard.boardId));
+        } catch (err) {
+            console.error("Failed to delete tasks:", err);
+        }
+    };
+
+    const deleteCurrentBoard = async () =>{
+        if (!currentBoard) return;
+
+        try{
+            await api.deleteBoard.boardsDeleteBoard({boardId: currentBoard.boardId});
+            navigate("/");
+        } catch (err) {
+            console.error("Failed to delete board:", err);
+        }
+    }
+
 
     const saveTitle = async () => {
         if (!currentBoard) return;
@@ -134,6 +163,16 @@ export default function Board() {
                             boardId={params.boardId!}
                         />
                     ))}
+                </div>
+            </div>
+            <div className={"flex flex-row actions-container place-self-end m-15 gap-1"}>
+                <div className={"btn w-15 h-15"} onClick={() => deleteAllTasks()}>
+                    <FontAwesomeIcon icon={faEraser} />
+                </div>
+
+                <div className = "btn w-15 h-15 text-red-500" onClick = {() => deleteCurrentBoard()}>
+                    <FontAwesomeIcon
+                        icon={faTrash}/>
                 </div>
             </div>
         </DragDropContext>

@@ -32,7 +32,7 @@ export interface TaskDto {
 }
 
 export interface CreateBoardDto {
-  /** @minLength 4 */
+  /** @minLength 3 */
   title: string;
   /** @format int32 */
   userId: number;
@@ -42,7 +42,8 @@ export interface CreateBoardDto {
 export interface CreateTaskDto {
   /** @format int32 */
   boardId: number;
-  title?: string;
+  /** @minLength 3 */
+  title: string;
   status?: string | null;
 }
 
@@ -394,6 +395,29 @@ export class Api<
         ...params,
       }),
   };
+  deleteBoard = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsDeleteBoard
+     * @request DELETE:/DeleteBoard
+     */
+    boardsDeleteBoard: (
+      query?: {
+        /** @format int32 */
+        boardId?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<BoardDto, any>({
+        path: `/DeleteBoard`,
+        method: "DELETE",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
   getAllBoards = {
     /**
      * No description
@@ -457,6 +481,29 @@ export class Api<
     ) =>
       this.request<TaskDto, any>({
         path: `/DeleteTask`,
+        method: "DELETE",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
+  deleteAllTasksForBoard = {
+    /**
+     * No description
+     *
+     * @tags Boards
+     * @name BoardsDeleteAllTasksForBoard
+     * @request DELETE:/DeleteAllTasksForBoard
+     */
+    boardsDeleteAllTasksForBoard: (
+      query?: {
+        /** @format int32 */
+        boardId?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<BoardDto, any>({
+        path: `/DeleteAllTasksForBoard`,
         method: "DELETE",
         query: query,
         format: "json",

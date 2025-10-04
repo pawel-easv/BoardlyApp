@@ -9,3 +9,7 @@
 .button-image-container{
     @apply btn btn-primary bg-primary text-base-200 hover:bg-base-200 hover:text-primary
 }
+
+.delete-button{
+    @apply btn border-red-400 text-red-400 p-3 text-2xl border-1 rounded-xl
+}

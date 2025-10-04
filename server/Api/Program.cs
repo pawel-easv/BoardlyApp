@@ -21,18 +21,21 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder();
         ConfigureServices(builder.Services);
-
-        var app = builder.Build();
-
-        app.UseRouting();
         
+        var app = builder.Build();
+    
+        app.UseCors(config => config.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().SetIsOriginAllowed(x => true));
+        
+        app.UseRouting();
+    
         app.UseOpenApi();
         
         app.UseSwaggerUi();
 
         app.MapControllers();
 
-        app.Run();
-
+        var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+        app.Run($"http://0.0.0.0:{port}");
     }
+
 }

@@ -18,21 +18,27 @@ public class BoardService : IBoardService
     public async Task<BoardDto> CreateBoard(CreateBoardDto dto)
     {
         Validator.ValidateObject(dto, new ValidationContext(dto), true);
+        
+        var userExists = await _ctx.Users.AnyAsync(u => u.UserId == dto.UserId);
+        if (!userExists)
+            throw new InvalidOperationException($"User with ID {dto.UserId} not found.");
 
         var board = new Board
         {
             Title = dto.Title,
             Description = dto.Description,
-            CreatedAt = DateTime.Now
+            CreatedAt = DateTime.Now 
         };
+
+        _ctx.Boards.Add(board);
+        await _ctx.SaveChangesAsync(); 
 
         var userBoard = new UserBoard
         {
             UserId = dto.UserId,
-            Board = board
+            BoardId = board.BoardId 
         };
 
-        _ctx.Boards.Add(board);
         _ctx.UserBoards.Add(userBoard);
         await _ctx.SaveChangesAsync();
 
@@ -50,6 +56,17 @@ public class BoardService : IBoardService
         board.Title = dto.Title;
         await _ctx.SaveChangesAsync();
 
+        return new BoardDto(board);
+    }
+
+    public async Task<BoardDto> DeleteBoard(int boardId)
+    {
+        var board = await _ctx.Boards.FirstOrDefaultAsync(b => b.BoardId == boardId);
+        if (board == null)
+            throw new InvalidOperationException($"Board with ID {boardId} not found.");
+        _ctx.Boards.Remove(board);
+        await _ctx.SaveChangesAsync();
+        
         return new BoardDto(board);
     }
 
@@ -111,4 +128,25 @@ public class BoardService : IBoardService
         await _ctx.SaveChangesAsync();
         return new TaskDto(task);
     }
+
+    public async Task<BoardDto> DeleteAllTasksForBoard(int boardId)
+    {
+        var board = await _ctx.Boards
+            .Include(b => b.Tasks)
+            .FirstOrDefaultAsync(b => b.BoardId == boardId);
+
+        if (board == null)
+            throw new InvalidOperationException($"Board with ID {boardId} not found.");
+
+        if (board.Tasks.Any())
+        {
+            _ctx.Tasks.RemoveRange(board.Tasks);
+            await _ctx.SaveChangesAsync();
+        }
+
+        return new BoardDto(board);
+    }
+
+
+
 }
