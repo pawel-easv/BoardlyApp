@@ -1,7 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router";
 import Home from "./components/Home";
 import {useAtom} from "jotai";
-import {ThemeAtom} from "./atoms.ts";
+import {AllThemesAtom} from "./atoms.ts";
 import Board from "./components/Board.tsx";
 import MainLayout from "./components/MainLayout.tsx";
 
@@ -25,7 +25,7 @@ const myRoutes= [
 ]
 
 function App() {
-    const [colorTheme] = useAtom(ThemeAtom);
+    const [colorTheme] = useAtom(AllThemesAtom);
 
 
 

@@ -4,7 +4,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 import { Api } from "../../Api.ts";
 import { useAtom } from "jotai";
-import { TasksAtom } from "../atoms.ts";
+import { AllTasksAtom } from "../atoms.ts";
 
 const api = new Api();
 
@@ -15,7 +15,7 @@ interface TaskListProps {
 }
 
 export default function TaskList({ id, title, boardId }: TaskListProps) {
-    const [tasks, setTasks] = useAtom(TasksAtom);
+    const [tasks, setTasks] = useAtom(AllTasksAtom);
 
     const tasksForThisList = tasks.filter((t) => t.status === id);
 

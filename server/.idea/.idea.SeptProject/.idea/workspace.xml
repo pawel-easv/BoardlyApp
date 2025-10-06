@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="048ca326-202c-446f-af21-c3224eff43b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../client/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/Board.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Board.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="048ca326-202c-446f-af21-c3224eff43b3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +192,9 @@
       <workItem from="1759399269595" duration="2537000" />
       <workItem from="1759500258926" duration="6818000" />
       <workItem from="1759582550849" duration="702000" />
-      <workItem from="1759614246824" duration="6414000" />
+      <workItem from="1759614246824" duration="7923000" />
+      <workItem from="1759748430605" duration="629000" />
+      <workItem from="1759789927293" duration="7000" />
     </task>
     <servers />
   </component>

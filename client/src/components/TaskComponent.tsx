@@ -2,17 +2,20 @@ import type { TaskDto } from "../../Api.ts";
 import { useState, useMemo } from "react";
 import { Api } from "../../Api.ts";
 import { useAtom } from "jotai";
-import { TasksAtom } from "../atoms.ts";
+import { AllTasksAtom } from "../atoms.ts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import useBoardCrud from "../useBoardCrud.ts";
+
 
 interface TaskProps {
     task: TaskDto;
 }
 
 export default function TaskComponent({ task }: TaskProps) {
+    var boardCrud = useBoardCrud();
     const api = useMemo(() => new Api(), []);
-    const [, setTasks] = useAtom(TasksAtom);
+    const [, setTasks] = useAtom(AllTasksAtom);
 
     const [isEditing, setIsEditing] = useState(false);
     const [title, setTitle] = useState(task.title ?? "");
@@ -23,23 +26,8 @@ export default function TaskComponent({ task }: TaskProps) {
             return;
         }
 
-        try {
-            const updated =
-                await api.updateTask.boardsUpdateTask({
-                    taskId: task.taskId!,
-                    title,
-                    status: task.status!,
-                });
-
-            // Update atom with new task title
-            setTasks((prev) =>
-                prev.map((t) => (t.taskId === task.taskId ? updated.data : t))
-            );
-
-            setIsEditing(false);
-        } catch (err) {
-            console.error("Failed to update task title:", err);
-        }
+        await boardCrud.updateTask(task);
+        setIsEditing(false);
     };
 
     const deleteTask = async () => {

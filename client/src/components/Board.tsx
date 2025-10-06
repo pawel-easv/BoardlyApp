@@ -1,14 +1,13 @@
 import TaskList from "./TaskList.tsx";
 import { DragDropContext, type DropResult } from "@hello-pangea/dnd";
 import { useEffect, useState } from "react";
-import { Api } from "../../Api.ts";
 import {useNavigate, useParams} from "react-router";
 import { useAtom } from "jotai";
-import { AllBoardsAtom, TasksAtom } from "../atoms.ts";
 import {faEraser, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import useBoardCrud from "../useBoardCrud.ts";
+import {AllTasksAtom} from "../atoms.ts";
 
-const api = new Api();
 
 export type BoardProps = {
     boardId: string;
@@ -21,12 +20,12 @@ const COLUMN_CONFIG = [
 ] as const;
 
 export default function Board() {
+    const boardCrud = useBoardCrud();
     const navigate = useNavigate();
     const params = useParams<BoardProps>();
-    const [boards, setBoards] = useAtom(AllBoardsAtom);
-    const currentBoard = boards.find(({ boardId }) => boardId == params.boardId);
+    const currentBoard = boardCrud.getBoard(parseInt(params.boardId!));
 
-    const [tasks, setTasks] = useAtom(TasksAtom);
+    const [tasks, setTasks] = useAtom(AllTasksAtom);
 
     const [isEditing, setIsEditing] = useState(false);
     const [title, setTitle] = useState(currentBoard?.title ?? "");
@@ -38,17 +37,7 @@ export default function Board() {
     }, [currentBoard]);
 
     useEffect(() => {
-        const loadTasks = async () => {
-            try {
-                const res = await api.getAllTasksForBoard.boardsGetAllTasksForBoard({
-                    boardId: parseInt(params.boardId!)
-                });
-                setTasks(res.data);
-            } catch (err) {
-                console.error("Failed to fetch tasks:", err);
-            }
-        };
-        loadTasks();
+        boardCrud.loadTasks(params.boardId!);
     }, [params.boardId, setTasks]);
 
     const onDragEnd = async (result: DropResult) => {
@@ -63,64 +52,28 @@ export default function Board() {
 
         const movedTask = { ...tasks[taskIndex], status: destCol };
 
-        try {
-            await api.updateTask.boardsUpdateTask({
-                taskId: movedTask.taskId!,
-                title: movedTask.title!,
-                status: destCol,
-            });
-
-            const newTasks = [...tasks];
-            newTasks.splice(taskIndex, 1);
-            newTasks.push(movedTask);
-            setTasks(newTasks);
-        } catch (err) {
-            console.error("Failed to update task:", err);
-        }
+        await boardCrud.moveTask(movedTask, taskIndex);
     };
 
     const deleteAllTasks = async () => {
         if (!currentBoard) return;
 
-        try {
-            await api.deleteAllTasksForBoard.boardsDeleteAllTasksForBoard({
-                boardId: currentBoard.boardId,
-            });
-
-            setTasks((prev) => prev.filter(t => t.boardId !== currentBoard.boardId));
-        } catch (err) {
-            console.error("Failed to delete tasks:", err);
-        }
+        await boardCrud.deleteAllTasksForBoard(currentBoard.boardId!);
     };
 
     const deleteCurrentBoard = async () =>{
         if (!currentBoard) return;
 
-        try{
-            await api.deleteBoard.boardsDeleteBoard({boardId: currentBoard.boardId});
-            navigate("/");
-        } catch (err) {
-            console.error("Failed to delete board:", err);
-        }
+        await boardCrud.deleteBoard(currentBoard.boardId!);
+        navigate("/");
     }
 
 
     const saveTitle = async () => {
         if (!currentBoard) return;
-
+        currentBoard.title = title;
         try {
-            await api.updateBoard.boardsUpdateBoard({
-                boardId: Number(params.boardId),
-                title: title
-            });
-
-            // update local state of boards
-            const updatedBoards = boards.map((b) =>
-                b.boardId == params.boardId ? { ...b, title } : b
-            );
-            setBoards(updatedBoards);
-        } catch (err) {
-            console.error("Failed to update board title:", err);
+            await boardCrud.updateBoards(currentBoard);
         } finally {
             setIsEditing(false);
         }

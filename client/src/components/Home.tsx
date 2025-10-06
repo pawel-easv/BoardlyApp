@@ -2,27 +2,20 @@ import SideMenu from "./SideMenu.tsx";
 import {useNavigate} from "react-router";
 import {AllBoardsAtom} from "../atoms.ts";
 import {useAtom} from "jotai";
-import {Api} from "../../Api.ts";
 import {useEffect} from "react";
 import boardImage from "../assets/kanban.png"
 import {boardPath} from "../App.tsx";
+import useBoardCrud from "../useBoardCrud.ts";
 
 export default function Home(){
-    const [boards, setBoards] = useAtom(AllBoardsAtom);
-    const api = new Api();
+    var boardCrud = useBoardCrud();
+    const [boards, ] = useAtom(AllBoardsAtom);
 
     const temporaryUserId = 1;
 
 
     useEffect(() => {
-        api.getAllBoards.boardsGetAllBoards({ userId: temporaryUserId })
-            .then((response) => {
-                console.log(response);
-                setBoards(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        boardCrud.getAllBoards(temporaryUserId);
     }, []);
 
 

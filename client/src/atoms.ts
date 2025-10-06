@@ -11,8 +11,8 @@ export enum ColorTheme {
     PASTEL = "pastel",
     CYBERPUNK = "cyberpunk",
 }
-export const ThemeAtom = atom("coffee");
+export const AllThemesAtom = atom("coffee");
 
 export const AllBoardsAtom = atom<BoardDto[]>([]);
 
-export const TasksAtom = atom<TaskDto[]>([]);
+export const AllTasksAtom = atom<TaskDto[]>([]);

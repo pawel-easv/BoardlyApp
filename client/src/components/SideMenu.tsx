@@ -1,14 +1,14 @@
 import {faChalkboard, faChalkboardUser} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useAtom, useSetAtom} from "jotai";
-import {AllBoardsAtom, ColorTheme, ThemeAtom} from "../atoms.ts";
+import {AllBoardsAtom, ColorTheme, AllThemesAtom} from "../atoms.ts";
 import {Api} from "../../Api.ts";
 
 const api = new Api();
 
 
 export default function SideMenu() {
-    const setThemeAtom = useSetAtom(ThemeAtom);
+    const setThemeAtom = useSetAtom(AllThemesAtom);
     const [boards, setBoards] = useAtom(AllBoardsAtom);
 
     function ToggleColorTheme(colorTheme: ColorTheme) {
